@@ -31,10 +31,10 @@ class App extends Component {
 
     // bind ArrowRight keydown event
    // addEventListener("keydown", myScript)
-   handleKeyPress(event){
+   handleKeyPress(event) {
     if(event.key==="ArrowRight"){
         this.setState(prevState => {
-            let newPosi = Number(prevState.posi) + 5;
+            let newPosi = prevState.posi + 5;
             return {
                 posi: newPosi,
                 ballPosition: { left: `${newPosi}px` }
