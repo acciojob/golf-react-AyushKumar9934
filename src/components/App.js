@@ -31,7 +31,18 @@ class App extends Component {
 
     // bind ArrowRight keydown event
    // addEventListener("keydown", myScript)
-   handleKeyPress(event) {
+//    handleKeyPress(event) {
+//     if(event.key==="ArrowRight"){
+//         this.setState(prevState => {
+//             let newPosi = prevState.posi + 5;
+//             return {
+//                 posi: newPosi,
+//                 ballPosition: { left: `${newPosi}px` }
+//             }
+//         });
+//     }
+// }
+handleKeyPress(event) {
     if(event.key==="ArrowRight"){
         this.setState(prevState => {
             let newPosi = prevState.posi + 5;
@@ -39,17 +50,12 @@ class App extends Component {
                 posi: newPosi,
                 ballPosition: { left: `${newPosi}px` }
             }
+        }, () => {
+            console.log(this.state.ballPosition);  // You should see the updated position here
         });
     }
 }
-//    handleKeyPress = (event) => {
-//     if (event.key === "ArrowRight") {
-//         this.setState(prevState => ({
-//             posi: prevState.posi + 5,
-//             ballPosition: { left: `${prevState.posi + 5}px` }
-//         }));
-//     }
-// }
+
 componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyPress);
 }
